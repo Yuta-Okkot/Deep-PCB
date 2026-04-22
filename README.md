@@ -264,6 +264,19 @@ yolo detect predict \
 
 ## Streamlit Dashboard
 
+The project includes an interactive Streamlit dashboard for demonstrating and using the trained detector.
+
+Dashboard features:
+
+- Secure demo login page
+- PCB defect scanner with image upload
+- Adjustable detection sensitivity
+- GPU or CPU inference mode
+- Detection table with class, confidence, and bounding-box coordinates
+- Annotated result image with defect boxes
+- Dataset gallery for browsing train, validation, and test samples
+- Model explanation page with training curves, PR curve, and confusion matrix interpretation
+
 Run the dashboard:
 
 ```bash
@@ -287,9 +300,34 @@ password: pcb123
 
 Dashboard pages:
 
-- **Scanner**: upload a PCB image and detect defects
-- **Dataset**: browse training, validation, and test images as a gallery
-- **Model Explanation**: understand the model goal, metrics, and evaluation graphs
+- **Scanner**: upload a PCB image and detect defects. The page displays the original image, the annotated prediction result, total defect count, detected defect types, confidence scores, and box coordinates.
+- **Dataset**: browse the YOLO-formatted train, validation, and test splits as an image gallery. Each sample can be inspected with its normalized YOLO labels and optional ground-truth overlay.
+- **Model Explanation**: documents the goal of the model and explains precision, recall, mAP50, mAP50-95, training losses, PR curve, F1 curve, and confusion matrix.
+
+Recommended browser URL:
+
+```text
+http://localhost:8501
+```
+
+The dashboard automatically looks for the trained model in:
+
+```text
+models/final/pcb_fault_detector_best.pt
+```
+
+If that file does not exist, it uses the latest YOLO run found in:
+
+```text
+models/yolo_runs/*/weights/best.pt
+```
+
+For a clean final deployment, copy your selected best model into:
+
+```bash
+mkdir -p models/final
+cp models/yolo_runs/<run_name>/weights/best.pt models/final/pcb_fault_detector_best.pt
+```
 
 ## Scripts
 
