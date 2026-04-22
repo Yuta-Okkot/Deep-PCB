@@ -1,0 +1,16 @@
+.venv/
+.venv-wsl/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.pt
+yolov8n.pt
+DeepPCB-master/
+data/excluded_missing_labels/
+data/processed/
+models/checkpoints/
+models/saved_model/
+models/final/
+models/yolo_runs/
+outputs/predictions/
+outputs/visualizations/

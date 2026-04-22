@@ -1,0 +1,12 @@
+tensorflow
+keras-cv
+ultralytics
+opencv-python
+numpy
+pandas
+matplotlib
+pillow
+pycocotools
+scikit-learn
+tqdm
+streamlit
